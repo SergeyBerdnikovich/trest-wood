@@ -1,5 +1,5 @@
 class Gallery < ActiveRecord::Base
-  belongs_to :item
+  belongs_to :items
 
   has_attached_file :image,
                     :styles => { :small => "50x50>",
@@ -13,5 +13,5 @@ class Gallery < ActiveRecord::Base
   validates_attachment_content_type :image,
                                     :content_type => ['image/jpg', 'image/jpeg', 'image/gif', 'image/png']
 
-  attr_accessible :item_id, :image
+  attr_accessible :items_id, :image
 end
