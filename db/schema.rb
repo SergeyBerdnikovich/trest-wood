@@ -11,13 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209132335) do
+ActiveRecord::Schema.define(:version => 20130209134055) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "item_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "galleries", ["item_id"], :name => "index_galleries_on_item_id"
 
   create_table "items", :force => true do |t|
     t.integer  "category_id"
