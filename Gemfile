@@ -23,6 +23,12 @@ end
 gem 'jquery-rails'
 
 gem 'paperclip'
+gem 'devise'
+gem 'activeadmin'
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'tinymce-rails-imageupload'
+gem 'sanitize'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
