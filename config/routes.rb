@@ -3,11 +3,10 @@ TrestWood::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  get "items/index"
-
-  get "items/show"
-
   get "pages/welcome"
+
+  resources :tinymce_assets, :only => :create
+  resources :items, :only => [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
