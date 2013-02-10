@@ -1,8 +1,6 @@
-class Contacts < ActiveRecord::Base
-  attr_accessible :contacts
-
-  def self.sanitize_contacts(contacts)
-    Sanitize.clean(contacts,
+module TunedSanitize
+  def self.for_(content)
+    Sanitize.clean(content,
       :elements => %w[
         a b br em h1 h2 h3 h4 h5 h6 i img li ol p small strong sub sup table tbody td
         th tr u ul iframe span

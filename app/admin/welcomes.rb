@@ -1,8 +1,8 @@
 # coding: utf-8
-ActiveAdmin.register Contact do
+ActiveAdmin.register Welcome do
   index do
     column 'Ид', :id
-    column 'Контакты', :content
+    column 'Содержание', :content
     column 'Создан', :created_at
     column 'Обновлён', :updated_at
 
@@ -14,22 +14,22 @@ ActiveAdmin.register Contact do
       row :id
       row :created_at
       row :updated_at
-      row :content do |contact|
-        TunedSanitize::for_(contact.content).html_safe
+      row :content do |welcome|
+        TunedSanitize::for_(welcome.content).html_safe
       end
     end
     active_admin_comments
   end
 
-  form :partial => "contact_form"
+  form :partial => "welcome_form"
 
   controller do
     def create
-      params[:contact][:content] = TunedSanitize::for_(params[:contact][:content])
+      params[:welcome][:content] = TunedSanitize::for_(params[:welcome][:content])
       create!
     end
     def update
-      params[:contact][:content] = TunedSanitize::for_(params[:contact][:content])
+      params[:welcome][:content] = TunedSanitize::for_(params[:welcome][:content])
       update!
     end
   end
