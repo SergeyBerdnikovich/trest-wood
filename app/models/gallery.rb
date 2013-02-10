@@ -5,6 +5,7 @@ class Gallery < ActiveRecord::Base
                     :styles => { :small => "50x50>",
                                  :for_gallery => "200x200>",
                                  :normal => "700x700>" },
+                    :convert_options => { :normal => "#{Rails.root.join('public/watermark.png')} -gravity southeast -composite" },
                     :url  => "/images/gallery/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/images/gallery/:id/:style/:basename.:extension"
 
