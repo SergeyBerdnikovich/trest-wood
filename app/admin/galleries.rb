@@ -15,7 +15,7 @@ ActiveAdmin.register Gallery do
 
   form do |f|
     f.inputs "Продукция" do
-      f.select("items_id", Items.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true })
+      f.select("item_id", Item.all.collect {|p| [ p.title, p.id ] }, { :include_blank => true })
     end
     f.inputs "Фото", :multipart => true do
       f.input :image, :as => :file, :hint => f.template.image_tag(f.object.image.url(:normal))
@@ -26,8 +26,8 @@ ActiveAdmin.register Gallery do
   show do
     attributes_table do
       row :id
-      row :items do |gallery|
-        link_to gallery.items.title, admin_item_path(gallery.items) if gallery.items
+      row :item do |gallery|
+        link_to gallery.item.title, admin_item_path(gallery.item) if gallery.item
       end
       row :image_file_name
       row :image_content_type

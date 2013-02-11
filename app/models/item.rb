@@ -1,4 +1,4 @@
-class Items < ActiveRecord::Base
+class Item < ActiveRecord::Base
   belongs_to :category
   has_many :galleries, :dependent => :destroy
 

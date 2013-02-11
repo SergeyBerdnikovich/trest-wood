@@ -1,2 +1,15 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<table class="table table-bordered">
+  <tr>
+    <th>title</th>
+    <th>description</th>
+    <th>coast</th>
+    <th>material</th>
+    <th>category</th>
+  </tr>
+    <td><%= @item.title %></td>
+    <td><%= @item.description %></td>
+    <td><%= @item.coast %></td>
+    <td><%= @item.material %></td>
+    <td><%= @item.category.title if @item.category %></td>
+  </tr>
+</table>

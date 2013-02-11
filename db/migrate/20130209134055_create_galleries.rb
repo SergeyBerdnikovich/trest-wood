@@ -1,7 +1,7 @@
 class CreateGalleries < ActiveRecord::Migration
   def change
     create_table :galleries do |t|
-      t.references :items
+      t.references :item
       t.attachment :image
       t.string :image_file_name
       t.string :image_content_type
@@ -9,6 +9,6 @@ class CreateGalleries < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :galleries, :items_id
+    add_index :galleries, :item_id
   end
 end

@@ -1,5 +1,5 @@
 # coding: utf-8
-ActiveAdmin.register Items do
+ActiveAdmin.register Item do
   form do |f|
     f.inputs "Категория" do
       f.select("category_id", Category.all.collect {|p| [ p.title, p.id ] }, { :include_blank => false })
