@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :category
       t.string :title
       t.string :description
-      t.integer :coast
+      t.integer :cost
       t.string :material
 
       t.timestamps

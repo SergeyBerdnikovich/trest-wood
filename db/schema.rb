@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(:version => 20130210143250) do
     t.integer  "category_id"
     t.string   "title"
     t.string   "description"
-    t.integer  "coast"
+    t.integer  "cost"
     t.string   "material"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

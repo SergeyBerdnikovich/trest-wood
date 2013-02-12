@@ -7,7 +7,7 @@ ActiveAdmin.register Item do
     f.inputs "Продукция" do
       f.input :title, :label => "Название"
       f.input :description, :label => "Описание"
-      f.input :coast, :label => "Цена"
+      f.input :cost, :label => "Цена"
       f.input :material, :label => "Материал"
     end
     f.inputs "Фото",
@@ -33,7 +33,7 @@ ActiveAdmin.register Item do
       row :title
       row :description
       row :material
-      row :coast
+      row :cost
       row :created_at
       row :updated_at
       row :images do |item|

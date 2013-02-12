@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.order(:title)
+    category = Category.find(params[:category_id])
+    @items = Item.for_category(category)
   end
 
   def show

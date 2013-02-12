@@ -1,0 +1,47 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+        <li>
+          <a class="brand" href="/">
+            <%= image_tag "/assets/twitter-bootstrap/glyphicons_266_flag.png" %>
+            trest-wood
+          </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <%= image_tag "/assets/twitter-bootstrap/glyphicons_049_star.png" %>
+            Продукция <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% @categories.each do |category| %>
+              <li><a href="<%= category_items_path(category) %>"><%= category.title %></a></li>
+            <% end %>
+          </ul>
+        </li>
+        <li>
+          <a data-toggle="modal" href="#myModal" id="contact_modal">
+            <%= image_tag "/assets/twitter-bootstrap/glyphicons_029_notes_2.png" %>
+            Контакты
+          </a>
+        </li>
+        <li>
+          <a href="<%= new_admin_user_session_path %>">
+            <%= image_tag "/assets/twitter-bootstrap/glyphicons_137_cogwheels.png" %>
+            Войти
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Контакты</h3>
+  </div>
+  <div class="modal-body">
+    <p><%== TunedSanitize::for_(@contact.content) if @contact %></p>
+  </div>
+</div>

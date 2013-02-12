@@ -6,7 +6,10 @@ TrestWood::Application.routes.draw do
   get "pages/welcome"
 
   resources :tinymce_assets, :only => :create
-  resources :items, :only => [:index, :show]
+
+  resources :categories, :only => [] do
+    resources :items, :only => [:index, :show]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,15 +1,28 @@
 <table class="table table-bordered">
   <tr>
-    <th>title</th>
-    <th>description</th>
-    <th>coast</th>
-    <th>material</th>
-    <th>category</th>
+    <th>Название</th>
+    <th>Описание</th>
+    <th>Цена</th>
+    <th>Материал</th>
+    <th>Категория</th>
   </tr>
     <td><%= @item.title %></td>
     <td><%= @item.description %></td>
-    <td><%= @item.coast %></td>
+    <td><%= @item.cost %></td>
     <td><%= @item.material %></td>
     <td><%= @item.category.title if @item.category %></td>
   </tr>
 </table>
+<ul class="thumbnails">
+  <% @item.galleries.each do |gallery| %>
+    <li class="span3">
+      <div class="thumbnail">
+        <div id="gallery">
+          <a href=<%= gallery.image.url(:normal) %> class="thumbnail">
+            <%= image_tag gallery.image.url(:for_gallery) %>
+          </a>
+        </div>
+    </div>
+    </li>
+  <% end %>
+</ul>

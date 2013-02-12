@@ -1,24 +1,20 @@
-<table class="table">
-  <tr>
-    <th></th>
-    <th>title</th>
-    <th>description</th>
-    <th>coast</th>
-    <th>material</th>
-    <th>category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @items.each do |item| %>
-  <tr>
-    <td><%= item.id %></td>
-    <td><%= item.title %></td>
-    <td><%= item.description %></td>
-    <td><%= item.coast %></td>
-    <td><%= item.material %></td>
-    <td><%= item.category.title if item.category %></td>
-  </tr>
-<% end %>
-</table>
+<ul class="thumbnails">
+  <% @items.each do |item| %>
+    <li class="span3">
+      <div class="thumbnail">
+        <div id="gallery">
+          <a href=<%= item.galleries.first.image.url(:normal) unless item.galleries.blank? %> title= <%= item.title %> class="thumbnail">
+            <% if item.galleries.first %>
+              <%= image_tag item.galleries.first.image.url(:for_gallery) %>
+            <% else %>
+              <%= image_tag "/assets/rails.png" %>
+            <% end %>
+          </a>
+        </div>
+      <p><%= item.title %></p>
+      <p>Цена: <%= item.cost %></p>
+      <a class="btn" href=<%= category_item_path(item.category, item) %>>Подробнее</a>
+    </div>
+    </li>
+  <% end %>
+</ul>
