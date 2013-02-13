@@ -5,18 +5,18 @@ class Seo < ActiveRecord::Base
 
   def self.get_keywords_for(obj)
     seo = Seo.find_by_seo_object_type_and_seo_object_id(obj.class, obj.id)
-    if seo.seo_object_type == 'Welcome'
-      seo ? seo.keywords : 'Welcome'
-    else
-      seo ? seo.keywords : "#{obj.title}"
-    end
+    seo ? seo.keywords : "#{obj.title}"
+  end
+  def self.get_keywords_for_welcome(obj)
+    seo = Seo.find_by_seo_object_type(obj.class)
+    seo ? seo.keywords : 'Welcome'
+  end
+  def self.get_description_for_welcome(obj)
+    seo = Seo.find_by_seo_object_type(obj.class)
+    seo ? seo.description : 'Welcome'
   end
   def self.get_description_for(obj)
     seo = Seo.find_by_seo_object_type_and_seo_object_id(obj.class, obj.id)
-    if seo.seo_object_type == 'Welcome'
-      seo ? seo.description : 'Welcome'
-    else
-      seo ? seo.description : "#{obj.title}"
-    end
+    seo ? seo.description : "#{obj.title}"
   end
 end

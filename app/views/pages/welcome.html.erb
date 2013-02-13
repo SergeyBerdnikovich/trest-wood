@@ -4,8 +4,8 @@
   <% set_meta_tags :site => "krest-wood.by",
                    :title => "krest-wood",
                    :reverse => true,
-                   :description => Seo.get_description_for(@welcome),
-                   :keywords => Seo.get_keywords_for(@welcome) if @welcome %>
+                   :description => Seo.get_description_for_welcome(@welcome),
+                   :keywords => Seo.get_keywords_for_welcome(@welcome) if @welcome %>
 </head>
 <body>
   <%== TunedSanitize::for_(@welcome.content) if @welcome %>
