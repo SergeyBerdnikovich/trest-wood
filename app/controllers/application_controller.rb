@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_filter :init_menu
 
   def init_menu
-    @categories = Category.all
+    @categories_for_menu = Category.all
     @contact = Contact.last
   end
 end

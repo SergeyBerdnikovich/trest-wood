@@ -23,7 +23,7 @@
       <div id="sidebar">
         <h4>Продукция:</h4>
         <ul id="list">
-          <% @categories.each do |category| %>
+          <% @categories_for_menu.each do |category| %>
             <li><a href="<%= category_items_path(category) %>"><%= category.title %></a></li>
           <% end %>
         </ul>
