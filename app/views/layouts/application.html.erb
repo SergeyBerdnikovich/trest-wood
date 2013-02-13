@@ -7,24 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="span12">
-      <div class="upper_zone">
-        <%= render "layouts/zone/upper_zone" %>
-      </div>
-    </div>
-    <div class="span12">
-      <div class="menu_zone">
-        <%= render "layouts/zone/menu_zone" %>
-      </div>
-    </div>
-    <div class="span12">
-      <p class="notice"><%= notice %></p>
-      <div class="content_zone">
-        <%= yield %>
-        <br><br><br><br><br><br>
-      </div>
-    </div>
-  </div>
+  <%= render "layouts/zone/zone" %>
 </body>
 </html>

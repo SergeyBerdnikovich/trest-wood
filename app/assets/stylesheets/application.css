@@ -1,6 +1,3 @@
 @import 'twitter-bootstrap/bootstrap';
 @import 'lightbox/jquery.lightbox-0.5';
-
-.upper_zone {
-  background-color: #eee;
-}
+@import 'zone/style';
