@@ -8,8 +8,8 @@ describe Item do
     it { should validate_uniqueness_of(:title) }
     it { should validate_presence_of(:title) }
     it { should ensure_length_of(:title).is_at_least(2).is_at_most(50) }
-    it { should ensure_length_of(:description).is_at_least(2).is_at_most(50) }
-    it { should ensure_length_of(:material).is_at_least(2).is_at_most(50) }
+    it { should ensure_length_of(:description).is_at_most(50) }
+    it { should ensure_length_of(:material).is_at_most(50) }
     its(:cost) { should be > 0 and should be < 9_999_999_999 }
     it { should belong_to(:category) }
     it { should have_many(:galleries) }

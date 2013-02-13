@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>KrestWood</title>
+  <% set_meta_tags :site => "krest-wood.by",
+                   :title => "krest-wood",
+                   :reverse => true,
+                   :description => Seo.get_description_for(@welcome),
+                   :keywords => Seo.get_keywords_for(@welcome) if @welcome %>
 </head>
 <body>
   <%== TunedSanitize::for_(@welcome.content) if @welcome %>

@@ -1,3 +1,10 @@
+<head>
+  <% set_meta_tags :site => "#{@item.title} | krest-wood.by",
+                   :title => "#{@item.title}",
+                   :reverse => true,
+                   :description => Seo.get_description_for(@item),
+                   :keywords => Seo.get_keywords_for(@item) %>
+</head>
 <table class="table table-bordered">
   <tr>
     <th>Название</th>

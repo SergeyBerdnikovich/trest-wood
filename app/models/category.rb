@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   has_many :items, :dependent => :destroy
+  has_one :seo, as: :seo_object, :dependent => :destroy
 
   attr_accessible :title
 

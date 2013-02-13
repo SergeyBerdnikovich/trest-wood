@@ -1,3 +1,10 @@
+<head>
+  <% set_meta_tags :site => "#{@category.title} | krest-wood.by",
+                   :title => "#{@category.title}",
+                   :reverse => true,
+                   :description => Seo.get_description_for(@category),
+                   :keywords => Seo.get_keywords_for(@category) %>
+</head>
 <ul class="thumbnails">
   <% @items.each do |item| %>
     <li class="span3">

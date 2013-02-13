@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210143250) do
+ActiveRecord::Schema.define(:version => 20130213124244) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(:version => 20130210143250) do
   end
 
   add_index "items", ["category_id"], :name => "index_items_on_category_id"
+
+  create_table "seos", :force => true do |t|
+    t.text     "keywords"
+    t.text     "description"
+    t.integer  "seo_object_id"
+    t.string   "seo_object_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "welcomes", :force => true do |t|
     t.text     "content"
