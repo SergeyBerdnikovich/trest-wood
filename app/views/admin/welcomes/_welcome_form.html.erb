@@ -5,6 +5,18 @@
     <%= f.label :content %><br />
     <%= f.text_area :content, :class => 'tinymce', :rows => 30, :cols => 120 %>
   </div>
+  <div class="field">
+    <%= f.fields_for :seo do |seo_form| %>
+      <%= seo_form.label :description %><br />
+      <%= seo_form.text_field :description %><br />
+      <%= seo_form.label :keywords %><br />
+      <%= seo_form.text_field :keywords %><br />
+      <% unless seo_form.object.new_record? %>
+         <%= seo_form.check_box '_destroy' %>
+         <%= seo_form.label '_destroy', 'Remove SEO' %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

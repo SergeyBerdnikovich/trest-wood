@@ -21,6 +21,17 @@ ActiveAdmin.register Item do
       fm.input :image, :as => :file,
                        :hint => fm.template.image_tag(fm.object.image.url)
     end
+    f.inputs "SEO",
+      :for => [:seo,
+                if f.object.seo
+                  f.object.seo
+                else
+                  f.object.build_seo
+                end
+              ] do |fm|
+      fm.input :description, :for => :seo
+      fm.input :keywords, :for => :seo
+    end
     f.actions
   end
 
@@ -34,6 +45,12 @@ ActiveAdmin.register Item do
       row :description
       row :material
       row :cost
+      row :seo_description do |item|
+        item.seo.description if item.seo
+      end
+      row :seo_keywords do |item|
+        item.seo.keywords if item.seo
+      end
       row :created_at
       row :updated_at
       row :images do |item|
