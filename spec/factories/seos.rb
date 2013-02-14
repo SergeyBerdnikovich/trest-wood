@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :seo do
+    description 'Door'
+    keywords 'Door, krest, wood'
   end
 end

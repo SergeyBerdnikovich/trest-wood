@@ -6,6 +6,7 @@ describe Admin::ItemsController do
   render_views
 
   let(:item) { create(:item) }
+  let(:seo) { create(:seo) }
   let(:category) { create(:category) }
   let(:gallery) { create(:gallery) }
   before do
@@ -30,6 +31,22 @@ describe Admin::ItemsController do
 
     it 'page(without gallery) should have content "Item was successfully updated"' do
 
+      category
+      visit edit_admin_item_path(item)
+      select(category.title, :from => 'item_category_id')
+      find_field('Название')
+      find_field('Описание')
+      fill_in('Цена', :with => 32000)
+      find_field('Материал')
+      attach_file('Image', "#{Rails.root}/app/assets/images/rails.png")
+      click_button('Update Item')
+
+      page.should have_content("Item was successfully updated")
+    end
+
+    it 'page(with seo) should have content "Item was successfully updated"' do
+
+      item.seo = seo
       category
       visit edit_admin_item_path(item)
       select(category.title, :from => 'item_category_id')
