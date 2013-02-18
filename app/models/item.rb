@@ -13,15 +13,13 @@ class Item < ActiveRecord::Base
   attr_accessible :cost, :description, :material, :title, :category_id,
                   :galleries_attributes, :seo_attributes
 
-  validates :cost, :numericality => { :greater_than => 0 },
-                   :length => { :maximum => 10 }
-  validates :title, :presence => true,
-                    :length => { :minimum => 2, :maximum => 50 },
-                    :uniqueness => true
-  validates :description, :length => { :maximum => 50 }
-  validates :material, :length => { :maximum => 50 }
+  validates :title,       :presence => true,
+                          :length => { :minimum => 2, :maximum => 50 },
+                          :uniqueness => true
+  validates :description, :length => { :maximum => 300 }
+  validates :material,    :length => { :maximum => 50 }
   validates :category_id, :presence => true
-  validates_associated :galleries
+  validates_associated    :galleries
 
   scope :for_category, ->(category) { where('category_id = ?', category) }
 end

@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:category_id)
     title 'Door'
     description 'very good door'
-    sequence(:cost)
+    cost '550 000 blr'
     material 'wood'
   end
 end
